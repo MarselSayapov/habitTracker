@@ -1,0 +1,69 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HabitTracker.Views.FormPage"
+             Title="Анкета">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Фамилия -->
+            <Label Text="Фамилия" FontAttributes="Bold" />
+            <Entry x:Name="LastNameEntry" Placeholder="Введите фамилию" />
+
+            <!-- Имя -->
+            <Label Text="Имя" FontAttributes="Bold" />
+            <Entry x:Name="FirstNameEntry" Placeholder="Введите имя" />
+
+            <!-- Отчество -->
+            <Label Text="Отчество" FontAttributes="Bold" />
+            <Entry x:Name="MiddleNameEntry" Placeholder="Введите отчество" />
+
+            <!-- Возраст -->
+            <Label Text="Возраст" FontAttributes="Bold" />
+            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                <Slider x:Name="AgeSlider"
+                        Minimum="0"
+                        Maximum="100"
+                        WidthRequest="200"
+                        ValueChanged="OnAgeChanged" />
+                <Stepper x:Name="AgeStepper"
+                         Minimum="0"
+                         Maximum="100"
+                         Increment="1"
+                         ValueChanged="OnAgeChanged" />
+                <Label x:Name="AgeLabel"
+                       Text="0"
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <!-- Телефон -->
+            <Label Text="Номер телефона" FontAttributes="Bold" />
+            <Entry x:Name="PhoneEntry"
+                   Placeholder="Введите номер телефона"
+                   TextChanged="OnPhoneChanged" />
+
+            <!-- Пол -->
+            <Label Text="Пол" FontAttributes="Bold" />
+            <HorizontalStackLayout>
+                <RadioButton Content="Мужской" GroupName="Gender" />
+                <RadioButton Content="Женский" GroupName="Gender" />
+            </HorizontalStackLayout>
+
+            <!-- Согласие -->
+            <HorizontalStackLayout VerticalOptions="Center" Spacing="10">
+                <Label Text="Согласие с условиями" VerticalOptions="Center" />
+                <Switch x:Name="AgreementSwitch" Toggled="OnAgreementToggled" />
+            </HorizontalStackLayout>
+
+            <!-- Кнопка -->
+            <Button x:Name="SubmitButton"
+                    Text="Отправить"
+                    BackgroundColor="#007BFF"
+                    TextColor="White"
+                    CornerRadius="12"
+                    IsEnabled="False"
+                    Clicked="OnSubmitClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
